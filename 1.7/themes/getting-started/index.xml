@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Getting started with theme development on PrestaShop Developer Documentation</title>
     <link>https://devdocs.prestashop.com/1.7/themes/getting-started/</link>
     <description>Recent content in Getting started with theme development on PrestaShop Developer Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 21 May 2019 11:15:29 +0200</lastBuildDate>
-    
-	<atom:link href="https://devdocs.prestashop.com/1.7/themes/getting-started/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://devdocs.prestashop.com/1.7/themes/getting-started/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Guidelines and coding standards</title>
       <link>https://devdocs.prestashop.com/1.7/themes/getting-started/guidelines/</link>
@@ -18,9 +13,9 @@
       
       <guid>https://devdocs.prestashop.com/1.7/themes/getting-started/guidelines/</guid>
       <description>Guidelines and coding standards Compatibility PHP Code Your PHP code should be compatible with the following versions:
- PrestaShop 1.7.0  ~ 1.7.3  : at least PHP 5.4 PrestaShop 1.7.4  : at least PHP 5.6  HTML / CSS / Javascript Your HTML/CSS/JS code should work with at least:
- IE9+ Edge Firefox 45 Chrome 29.  Mobile-wise:
- iOS 8.4 Android Browser 4.4  Standards General Use spaces for indentation in every language (PHP, HTML, CSS, etc.</description>
+ PrestaShop 1.7.0  ~ 1.7.3  : at least PHP 5.4 PrestaShop 1.7.4  : at least PHP 5.6 PrestaShop 1.7.7  : at least PHP 7.1  HTML / CSS / Javascript Your HTML/CSS/JS code should work with at least:
+ Edge Firefox 45 Chrome 29.  Mobile-wise:
+ iOS 8.4 Android Browser 4.</description>
     </item>
     
     <item>
@@ -39,17 +34,6 @@
       
       <guid>https://devdocs.prestashop.com/1.7/themes/getting-started/tools-for-theme-designers/</guid>
       <description>Tooling prerequisites for theme designers The way 1.7 themes are created is significantly different from the way they were with PrestaShop 1.6. By taking the freedom to rewrite the way themes work according to the latest best-practices, we chose to also work with modern tools. These tools are widely accepted as best-of-breed in the current web development; hence, learning to use them will not only make you more productive in PrestaShop development, but more importantly in web development in general.</description>
-    </item>
-    
-    <item>
-      <title>Starter Theme</title>
-      <link>https://devdocs.prestashop.com/1.7/themes/getting-started/starter-theme/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/themes/getting-started/starter-theme/</guid>
-      <description>Starter Theme This project is not maintained anymore by the core team.
- PrestaShop 1.7 introduces a new way for designers to create their theme from scratch: the Starter Theme. The default theme for PS 1.7 is based on the Starter Theme.
-For pretty much every CMS, the default theme is used as a framework to build custom theme: designers have to rework the default theme and reshape it into what they want to display.</description>
     </item>
     
     <item>

@@ -1,15 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>How to migrate Back Office pages to Symfony 3 on PrestaShop Developer Documentation</title>
+    <title>How to migrate Back Office pages to Symfony on PrestaShop Developer Documentation</title>
     <link>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/</link>
-    <description>Recent content in How to migrate Back Office pages to Symfony 3 on PrestaShop Developer Documentation</description>
+    <description>Recent content in How to migrate Back Office pages to Symfony on PrestaShop Developer Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jul 2019 15:58:14 -0300</lastBuildDate>
-    
-	<atom:link href="https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/index.xml" rel="self" type="application/rss+xml" />
-    
+    <language>en-us</language><atom:link href="https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migration project and strategy</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/strategy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/strategy/</guid>
+      <description>This is a summary of the current Migration Strategy. It provides an overview of our current vision, in the end of this year 2020, of the Symfony Migration project.
+Different kind of pages Back-Office pages can be classified in four categories:
+ Configuration / Settings Form pages  These pages allow the user to modify configuration settings in PrestaShop.
+Listing pages  These pages allow the user to browse PrestaShop content using listings.</description>
+    </item>
     
     <item>
       <title>Templating with Twig</title>
@@ -19,9 +26,8 @@
       <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/templating-with-twig/</guid>
       <description>Templating with Twig This is mostly the easy part. Legacy pages use Smarty while modern pages use Twig. These templating engines are actually similar in many ways.
 For instance, this is a legacy template:
-&amp;lt;span class=&amp;quot;employee_avatar_small&amp;quot;&amp;gt; &amp;lt;img class=&amp;quot;img&amp;quot; alt=&amp;quot;&amp;quot; src=&amp;quot;{$employee_image}&amp;quot; /&amp;gt; &amp;lt;/span&amp;gt; {$employee_name}  All of the legacy templates are located in the admin-dev/themes/default/template/controller folder
- &amp;hellip; and here is a possible migration of it to Twig:
-&amp;lt;span class=&amp;quot;employee_avatar_small&amp;quot;&amp;gt; &amp;lt;img class=&amp;quot;img&amp;quot; alt=&amp;quot;{{ employee.</description>
+&amp;lt;span class=&amp;#34;employee_avatar_small&amp;#34;&amp;gt; &amp;lt;img class=&amp;#34;img&amp;#34; alt=&amp;#34;&amp;#34; src=&amp;#34;{$employee_image}&amp;#34; /&amp;gt; &amp;lt;/span&amp;gt; {$employee_name}  All of the legacy templates are located in the admin-dev/themes/default/template/controller folder &amp;hellip; and here is a possible migration of it to Twig:
+&amp;lt;span class=&amp;#34;employee_avatar_small&amp;#34;&amp;gt; &amp;lt;img class=&amp;#34;img&amp;#34; alt=&amp;#34;{{ employee.</description>
     </item>
     
     <item>
@@ -30,9 +36,7 @@ For instance, this is a legacy template:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/controller-routing/</guid>
-      <description>Controller and Routing Modern/Symfony Controllers Read the Symfony documentation on Controllers and Routing.
- Every migrated page needs one or more Controllers: if you consider that a legacy Controller needs to be split into multiple controllers (for example: different URLs), it&amp;rsquo;s the right time to do it.
-New controllers should be placed in the src/PrestaShopBundle/Controller/Admin folder. Starting on 1.7.3, controllers are being progressively organized in sub-folders following the Back Office menu.</description>
+      <description>Controller and Routing Before creating a new symfony controller please read and follow principles described in Symfony controllers &amp;amp; routing. Controllers are responsible for performing &amp;ldquo;Actions&amp;rdquo;. Actions are methods of Controllers which mapped to a route, and that return a Response. Migration tips  If you consider that a legacy Controller needs to be split into multiple controllers (for example: different URLs), it&amp;rsquo;s the right time to do it. Controllers are not available for override and can be regarded as internal classes, therefore we don&amp;rsquo;t consider changing Controller&amp;rsquo;s namespace as a backward-compatibility break.</description>
     </item>
     
     <item>
@@ -62,19 +66,18 @@ Access to a lot of data, ordered by column: this data can be simple (text) or mo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/clean-up/</guid>
-      <description> Cleaning up Once everything is migrated, refactored, extracted to specific classes and working like a charm, it&amp;rsquo;s time to remove the old, migrated parts:
+      <description>Cleaning up Once everything is migrated, refactored, extracted to specific classes and working like a charm, it&amp;rsquo;s time to remove the old, migrated parts:
  Delete the old controller. Delete the old templates (delete the admin-dev/themes/default/template/controller/{name} folder. Delete the related &amp;ldquo;legacy tests&amp;rdquo;.  </description>
     </item>
     
     <item>
-      <title>Testing</title>
-      <link>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/</link>
+      <title>Validation</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/validation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/</guid>
-      <description>Testing You are encouraged to add both unit and functional tests for every new class you have created.
-You must add a smoke test (also called &amp;ldquo;survival&amp;rdquo;) for every new page you migrate.
-Smoke testing A smoke test is a really simple and basic test that ensure the page will load with the right HTTP code. This won&amp;rsquo;t ensure the page will works as expected but if the test fails, this ensure the page is not functional.</description>
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/validation/</guid>
+      <description>Validation The purpose of validation is to protect the application from failures, state inconsistency, security related issues etc. PrestaShop has few different levels of validation:
+ Forms (the CRUD or Settings) - are using Symfony validation constraints to prevent the user from providing invalid information while also enriching the user experience. For example if a form input expects Yes or No, but user submitted value XYZ we want to reject the data and inform the user what was wrong.</description>
     </item>
     
   </channel>

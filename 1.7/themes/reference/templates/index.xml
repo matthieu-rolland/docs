@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Templates on PrestaShop Developer Documentation</title>
     <link>https://devdocs.prestashop.com/1.7/themes/reference/templates/</link>
     <description>Recent content in Templates on PrestaShop Developer Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 07 Dec 2018 14:24:37 +0100</lastBuildDate>
-    
-	<atom:link href="https://devdocs.prestashop.com/1.7/themes/reference/templates/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://devdocs.prestashop.com/1.7/themes/reference/templates/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Templates &amp; layouts</title>
       <link>https://devdocs.prestashop.com/1.7/themes/reference/templates/templates-layouts/</link>
@@ -20,7 +15,7 @@
       <description>Templates &amp;amp; layouts PrestaShop template file are based on the Smarty 3 template engine.
 All template files must be stored in the theme&amp;rsquo;s templates/ subfolder. For instance, the default theme has its template files in the following folder: /themes/classic/templates.
 Directory structure Templates are then split between various subfolders.
- /_partials/ Code shared accross the whole site like header, footer or notifications. /catalog/ Product page, product/brand/supplier listing, search result and such.</description>
+ /_partials/ Code shared accross the whole site like header, footer or notifications. /catalog/ Product page, product/brand/supplier listing, search result and such. /checkout/ Cart, delivery options, payement options, order confirmations and such.</description>
     </item>
     
     <item>
@@ -30,10 +25,10 @@ Directory structure Templates are then split between various subfolders.
       
       <guid>https://devdocs.prestashop.com/1.7/themes/reference/templates/head/</guid>
       <description>Head The head part is very important in term of SEO and performances.
-Have look at StarterTheme and Classic head part to see real life examples.
+Have look at Classic&amp;rsquo;s head part to see real life examples.
 Assets PrestaShop 1.7 changed the way asset works and it means the way to it&amp;rsquo;s added inside the &amp;lt;head&amp;gt; tag of your page changed a bit too.
 There are 2 importants files to use:
- _partials/stylesheets.tpl _partials/javascript.tpl  There 2 files are used to take full advantage of the new features of 1.</description>
+ _partials/stylesheets.tpl _partials/javascript.tpl  These 2 files are used to take full advantage of the new features of 1.</description>
     </item>
     
     <item>
