@@ -7,17 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://devdocs.prestashop.com/1.7/modules/concepts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Configuration</title>
-      <link>https://devdocs.prestashop.com/1.7/modules/concepts/configuration/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/modules/concepts/configuration/</guid>
-      <description>Configuration Data can be saved in the shop database without requiring a module specific table to be created.
-The table configuration contains a list of key =&amp;gt; value(s) properties which can be accessed from anywhere, including in a module. The Configuration class is the interface allowing each module developer to get or store data in this table.
-Store configuration data &amp;lt;?php Configuration::updateValue(string $key, mixed $value); $key will be the reference to your data to reuse later.</description>
-    </item>
-    
-    <item>
       <title>Widgets</title>
       <link>https://devdocs.prestashop.com/1.7/modules/concepts/widgets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

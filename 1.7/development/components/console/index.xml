@@ -7,6 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://devdocs.prestashop.com/1.7/development/components/console/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Context helper</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/console/context-helper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/console/context-helper/</guid>
+      <description>CLI Context helper The legacy framework of PrestaShop was not built to be run from a Command Line.
+The consequence is that many of its functions require specific data to be properly initialized, and these parts are being initialized when an HTTP request is handled by the framework.
+In order to use legacy classes and components in Console, you need to initialize these parts. To make it easy, a LegacyContextLoader helper class was introduced in version 1.</description>
+    </item>
+    
+    <item>
       <title>prestashop:licenses:update</title>
       <link>https://devdocs.prestashop.com/1.7/development/components/console/prestashop-licenses-update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

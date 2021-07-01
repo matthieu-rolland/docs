@@ -28,17 +28,6 @@ $ php -l &amp;lt;file&amp;gt; Syntax check only (lint) The linter can be run on 
     </item>
     
     <item>
-      <title>Configuration</title>
-      <link>https://devdocs.prestashop.com/1.7/modules/concepts/configuration/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/modules/concepts/configuration/</guid>
-      <description>Configuration Data can be saved in the shop database without requiring a module specific table to be created.
-The table configuration contains a list of key =&amp;gt; value(s) properties which can be accessed from anywhere, including in a module. The Configuration class is the interface allowing each module developer to get or store data in this table.
-Store configuration data &amp;lt;?php Configuration::updateValue(string $key, mixed $value); $key will be the reference to your data to reuse later.</description>
-    </item>
-    
-    <item>
       <title>Create your custom form factory</title>
       <link>https://devdocs.prestashop.com/1.7/development/components/grid/tutorials/work-with-search-form/custom-form-factory/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -85,10 +74,11 @@ Db class methods Execute a raw SQL request (SELECT only) &amp;lt;?php $request =
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/themes/getting-started/guidelines/</guid>
-      <description>Guidelines and coding standards Compatibility PHP Code Your PHP code should be compatible with the following versions:
- PrestaShop 1.7.0  ~ 1.7.3  : at least PHP 5.4 PrestaShop 1.7.4  : at least PHP 5.6 PrestaShop 1.7.7  : at least PHP 7.1  HTML / CSS / Javascript Your HTML/CSS/JS code should work with at least:
+      <description>Guidelines and coding standards Compatibility PHP Code Your PHP code should be compatible with PHP compatibility chart
+HTML / CSS / Javascript Your HTML/CSS/JS code should work with at least:
  Edge Firefox 45 Chrome 29.  Mobile-wise:
- iOS 8.4 Android Browser 4.</description>
+ iOS 8.4 Android Browser 4.4  Standards General Use spaces for indentation in every language (PHP, HTML, CSS, etc.):
+4 spaces for PHP files, 2 spaces for all other file types.</description>
     </item>
     
     <item>
@@ -1865,6 +1855,17 @@ How do we use the UIKit? We use it by adding it into our npm dependency, and the
     </item>
     
     <item>
+      <title>Configuration storage</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/configuration/</guid>
+      <description>Configuration storage The Configuration storage of PrestaShop aims to address two needs.
+First, there are multiple situations where a single value has to be stored and be available easily. It can be a boolean to control order mode, it can be a limit for timeout: a simple key =&amp;gt; value(s) storage is needed to manage multiple settings in PrestaShop.
+Secondly, modules might sometimes need a simple storage system, and they should not have to create a new SQL table for such a simple need.</description>
+    </item>
+    
+    <item>
       <title>Release a native PrestaShop module</title>
       <link>https://devdocs.prestashop.com/1.7/project/maintainers-guide/release-a-native-ps-module/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1887,6 +1888,16 @@ Tabs registration In order to register new links, open your main module class.</
     </item>
     
     <item>
+      <title>Address domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/address/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/address/</guid>
+      <description>Address domain Address Commands AddCustomerAddressCommand PrestaShop\PrestaShop\Core\Domain\Address\Command\AddCustomerAddressCommand Adds new customer address
+   Command details      Constructor parameters  $int $customerId $string $addressAlias $string $firstName $string $lastName $string $address $string $city $int $countryId $string $postcode $?string $dni = NULL $?string $company = NULL $?string $vat_number = NULL $?string $address2 = NULL $int $id_state = 0 $?string $phone = NULL $?string $phone_mobile = NULL $?string $other = NULL    Handler class PrestaShop\PrestaShop\Adapter\Address\CommandHandler\AddCustomerAddressHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Address\CommandHandler\AddCustomerAddressHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Address\ValueObject\AddressId    AddManufacturerAddressCommand PrestaShop\PrestaShop\Core\Domain\Address\Command\AddManufacturerAddressCommand Adds new address</description>
+    </item>
+    
+    <item>
       <title>Addresses</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/addresses/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1896,12 +1907,45 @@ Tabs registration In order to register new links, open your main module class.</
     </item>
     
     <item>
+      <title>Attachment domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/attachment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/attachment/</guid>
+      <description>Attachment domain Attachment Commands AddAttachmentCommand PrestaShop\PrestaShop\Core\Domain\Attachment\Command\AddAttachmentCommand Attachment creation command
+   Command details      Constructor parameters  $array $localizedNames $array $localizedDescriptions    Handler class PrestaShop\PrestaShop\Adapter\Attachment\CommandHandler\AddAttachmentHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Attachment\CommandHandler\AddAttachmentHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Attachment\ValueObject\AttachmentId    BulkDeleteAttachmentsCommand PrestaShop\PrestaShop\Core\Domain\Attachment\Command\BulkDeleteAttachmentsCommand Bulk delete attachment command is responsible for deleting Attachment
+   Command details      Constructor parameters  $array $attachmentIds    Handler class PrestaShop\PrestaShop\Adapter\Attachment\CommandHandler\BulkDeleteAttachmentsHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Attachment\CommandHandler\BulkDeleteAttachmentsHandlerInterface   Return type void    DeleteAttachmentCommand PrestaShop\PrestaShop\Core\Domain\Attachment\Command\DeleteAttachmentCommand Delete attachment command is responsible for deleting Attachment</description>
+    </item>
+    
+    <item>
       <title>Attachments</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/attachments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/attachments/</guid>
       <description>Resources for Attachments  Attachment    Name Format Required Max size Description     file isGenericName ✔️ 40    file_name isGenericName ❌ 128    file_size isUnsignedId ❌     mime isCleanHtml ✔️ 128    name isGenericName ✔️ 32    description isCleanHtml ❌     associations  ❌      Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Back Office Help sidebar</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/back-office-help-sidebar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/back-office-help-sidebar/</guid>
+      <description>The Back Office Help sidebar Back Office controller returns Back Office HTML pages.
+Most of these Back Office pages have a common HTML structure:
+ a layout at the top a menu navigation bar on the left the page content at the center a collapsable right sidebar that contains documentation  About the help sidebar content When the BO user clicks on the &amp;lsquo;Help&amp;rsquo; button, the sidebar opens and displays the related Documentation page for the Back Office page that the user browses.</description>
+    </item>
+    
+    <item>
+      <title>Cache</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/cache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/cache/</guid>
+      <description>Cache Classes in the root namespace and overrides The /var/cache/&amp;lt;ENV&amp;gt;/class_index.php file contains the link between the class and the declaration file. If there is a caching issue, this file can safely be deleted.
+Smarty When the store&amp;rsquo;s front-end doesn&amp;rsquo;t quite reflect your changes and emptying the browser&amp;rsquo;s cache is not effective, try emptying the following folders:
+ /var/cache/&amp;lt;ENV&amp;gt;/smarty/cache /var/cache/&amp;lt;ENV&amp;gt;/smarty/compile  </description>
     </item>
     
     <item>
@@ -1915,12 +1959,34 @@ As with all shortcodes, keep in mind that headers inside won&amp;rsquo;t appear 
     </item>
     
     <item>
+      <title>Carrier domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/carrier/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/carrier/</guid>
+      <description>Carrier domain Carrier Commands BulkDeleteCarrierCommand PrestaShop\PrestaShop\Core\Domain\Carrier\Command\BulkDeleteCarrierCommand Bulk deletes carriers
+   Command details      Constructor parameters  $array $carrierIds    Handler class PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler\BulkDeleteCarrierHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Carrier\CommandHandler\BulkDeleteCarrierHandlerInterface   Return type void    BulkToggleCarrierStatusCommand PrestaShop\PrestaShop\Core\Domain\Carrier\Command\BulkToggleCarrierStatusCommand Bulk toggles carrier status
+   Command details      Constructor parameters  $array $carrierIds $bool $expectedStatus    Handler class PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler\BulkToggleCarrierStatusHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Carrier\CommandHandler\BulkToggleCarrierStatusHandlerInterface   Return type void    DeleteCarrierCommand PrestaShop\PrestaShop\Core\Domain\Carrier\Command\DeleteCarrierCommand Deletes carrier</description>
+    </item>
+    
+    <item>
       <title>Carriers</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/carriers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/carriers/</guid>
       <description>Resources for Carriers Carrier    Name Format Required Max size Not filterable Description     deleted isBool ❌      is_module isBool ❌      id_tax_rules_group  ❌  true Tax rules group ID   id_reference  ❌   Reference ID   name isCarrierName ✔️ 64     active isBool ✔️      is_free isBool ❌      url isAbsoluteUrl ❌      shipping_handling isBool ❌      shipping_external  ❌      range_behavior isBool ❌      shipping_method isUnsignedInt ❌      max_width isUnsignedInt ❌      max_height isUnsignedInt ❌      max_depth isUnsignedInt ❌      max_weight isFloat ❌      grade isUnsignedInt ❌ 1     external_module_name  ❌ 64     need_range  ❌      position  ❌      delay isGenericName ✔️ 512      Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Cart domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cart/</guid>
+      <description>Cart domain Cart Commands AddCartRuleToCartCommand PrestaShop\PrestaShop\Core\Domain\Cart\Command\AddCartRuleToCartCommand Adds cart rule to given cart.
+   Command details      Constructor parameters  $int $cartId $int $cartRuleId    Handler class PrestaShop\PrestaShop\Adapter\Cart\CommandHandler\AddCartRuleToCartHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Cart\CommandHandler\AddCartRuleToCartHandlerInterface   Return type void    AddCustomizationCommand PrestaShop\PrestaShop\Core\Domain\Cart\Command\AddCustomizationCommand Adds product customization
+   Command details      Constructor parameters  $int $cartId $int $productId $array $customizationValuesByFieldIds    Handler class PrestaShop\PrestaShop\Adapter\Cart\CommandHandler\AddCustomizationHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Cart\CommandHandler\AddCustomizationHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Product\Customization\ValueObject\CustomizationId    AddProductToCartCommand PrestaShop\PrestaShop\Core\Domain\Cart\Command\AddProductToCartCommand Responsible for adding product to cart</description>
     </item>
     
     <item>
@@ -1933,6 +1999,16 @@ As with all shortcodes, keep in mind that headers inside won&amp;rsquo;t appear 
     </item>
     
     <item>
+      <title>CartRule domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cart-rule/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cart-rule/</guid>
+      <description>CartRule domain CartRule Commands AddCartRuleCommand PrestaShop\PrestaShop\Core\Domain\CartRule\Command\AddCartRuleCommand Adds new cart rule
+   Command details      Constructor parameters  $array $localizedNames $bool $highlightInCart $bool $allowPartialUse $int $priority $bool $isActive $DateTime $validFrom $DateTime $validTo $int $totalQuantity $int $quantityPerUser $PrestaShop\PrestaShop\Core\Domain\CartRule\ValueObject\CartRuleAction\CartRuleActionInterface $cartRuleAction $float $minimumAmount $int $minimumAmountCurrencyId $bool $isMinimumAmountTaxExcluded $bool $isMinimumAmountShippingExcluded    Handler class PrestaShop\PrestaShop\Adapter\CartRule\CommandHandler\AddCartRuleHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CartRule\CommandHandler\AddCartRuleHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\CartRule\ValueObject\CartRuleId    BulkDeleteCartRuleCommand PrestaShop\PrestaShop\Core\Domain\CartRule\Command\BulkDeleteCartRuleCommand Deletes cart rules in bulk action</description>
+    </item>
+    
+    <item>
       <title>Carts</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/carts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1942,12 +2018,33 @@ As with all shortcodes, keep in mind that headers inside won&amp;rsquo;t appear 
     </item>
     
     <item>
+      <title>CatalogPriceRule domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/catalog-price-rule/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/catalog-price-rule/</guid>
+      <description>CatalogPriceRule domain CatalogPriceRule Commands AddCatalogPriceRuleCommand PrestaShop\PrestaShop\Core\Domain\CatalogPriceRule\Command\AddCatalogPriceRuleCommand Adds new catalog price rule with provided data
+   Command details      Constructor parameters  $string $name $int $currencyId $int $countryId $int $groupId $int $fromQuantity $string $reductionType $float $reductionValue $int $shopId $bool $includeTax $float $price    Handler class PrestaShop\PrestaShop\Adapter\CatalogPriceRule\CommandHandler\AddCatalogPriceRuleHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CatalogPriceRule\CommandHandler\AddCatalogPriceRuleHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\CatalogPriceRule\ValueObject\CatalogPriceRuleId    BulkDeleteCatalogPriceRuleCommand PrestaShop\PrestaShop\Core\Domain\CatalogPriceRule\Command\BulkDeleteCatalogPriceRuleCommand Deletes catalog price rules in bulk acton</description>
+    </item>
+    
+    <item>
       <title>Categories</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/categories/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/categories/</guid>
       <description>Resources for Categories Category    Name Format Required Writable Max size Not filterable Description     id_parent isUnsignedInt ❌ ✔️   Parent ID   level_depth isUnsignedInt ❌ ❌      nb_products_recursive  ❌ ❌  true    active isBool ✔️ ✔️      id_shop_default isUnsignedId ❌ ✔️   Default shop ID   is_root_category isBool ❌ ✔️      position  ❌ ✔️      date_add isDate ❌ ✔️      date_upd isDate ❌ ✔️      name isCatalogName ✔️ ✔️ 128     link_rewrite isLinkRewrite ✔️ ✔️ 128     description isCleanHtml ❌ ✔️      meta_title isGenericName ❌ ✔️ 255     meta_description isGenericName ❌ ✔️ 512     meta_keywords isGenericName ❌ ✔️ 255     associations  ❌ ✔️       Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Category domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/category/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/category/</guid>
+      <description>Category domain Category Commands AddCategoryCommand PrestaShop\PrestaShop\Core\Domain\Category\Command\AddCategoryCommand Class AddCategoryCommand adds new category.
+   Command details      Constructor parameters  $array $localizedNames $array $localizedLinkRewrites $bool $isActive $int $parentCategoryId    Handler class PrestaShop\PrestaShop\Adapter\Category\CommandHandler\AddCategoryHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Category\CommandHandler\AddCategoryHandlerInterface   Return type void    AddRootCategoryCommand PrestaShop\PrestaShop\Core\Domain\Category\Command\AddRootCategoryCommand Class AddRootCategoryCommand adds new root category.
+   Command details      Constructor parameters  $array $name $array $linkRewrite $bool $isActive    Handler class PrestaShop\PrestaShop\Adapter\Category\CommandHandler\AddRootCategoryHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Category\CommandHandler\AddRootCategoryHandlerInterface   Return type void    BulkDeleteCategoriesCommand PrestaShop\PrestaShop\Core\Domain\Category\Command\BulkDeleteCategoriesCommand Class BulkDeleteCategoriesCommand.</description>
     </item>
     
     <item>
@@ -2013,12 +2110,24 @@ Production dependencies    Package name From To Compare     beberlei/doctrineext
     </item>
     
     <item>
-      <title>Code of Conduct</title>
-      <link>https://devdocs.prestashop.com/1.7/project/code-of-conduct/</link>
+      <title>CmsPage domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cms-page/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://devdocs.prestashop.com/1.7/project/code-of-conduct/</guid>
-      <description>Code of Conduct The following code of conduct was originally published here. Our Pledge In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.</description>
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cms-page/</guid>
+      <description>CmsPage domain CmsPage Commands AddCmsPageCommand PrestaShop\PrestaShop\Core\Domain\CmsPage\Command\AddCmsPageCommand Adds new cms page
+   Command details      Constructor parameters  $int $cmsPageCategoryId $array $localizedTitle $array $localizedMetaTitle $array $localizedMetaDescription $array $LocalizedMetaKeyword $array $localizedFriendlyUrl $array $localizedContent $bool $indexedForSearch $bool $displayed $array $shopAssociation    Handler class PrestaShop\PrestaShop\Adapter\CMS\Page\CommandHandler\AddCmsPageHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CmsPage\CommandHandler\AddCmsPageHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\CmsPage\ValueObject\CmsPageId    BulkDeleteCmsPageCommand PrestaShop\PrestaShop\Core\Domain\CmsPage\Command\BulkDeleteCmsPageCommand Deletes multiple cms pages according to given array.</description>
+    </item>
+    
+    <item>
+      <title>CmsPageCategory domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cms-page-category/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/cms-page-category/</guid>
+      <description>CmsPageCategory domain CmsPageCategory Commands AddCmsPageCategoryCommand PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\Command\AddCmsPageCategoryCommand Class AddCmsPageCategoryCommand is responsible for adding cms page category.
+   Command details      Constructor parameters  $array $localisedName $array $localisedFriendlyUrl $int $parentId $bool $isDisplayed    Handler class PrestaShop\PrestaShop\Adapter\CMS\PageCategory\CommandHandler\AddCmsPageCategoryHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\CommandHandler\AddCmsPageCategoryHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\ValueObject\CmsPageCategoryId    BulkDeleteCmsPageCategoryCommand PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\Command\BulkDeleteCmsPageCategoryCommand Class BulkDeleteCmsPageCategoryCommand is responsible for deleting multiple cms page categories.
+   Command details      Constructor parameters  $array $cmsPageCategoryIds    Handler class PrestaShop\PrestaShop\Adapter\CMS\PageCategory\CommandHandler\BulkDeleteCmsPageCategoryHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\CommandHandler\BulkDeleteCmsPageCategoryHandlerInterface   Return type void    BulkDisableCmsPageCategoryCommand PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\Command\BulkDisableCmsPageCategoryCommand Class BulkDisableCmsPageCategoryCommand is responsible for disabling cms category pages.</description>
     </item>
     
     <item>
@@ -2031,12 +2140,45 @@ Production dependencies    Package name From To Compare     beberlei/doctrineext
     </item>
     
     <item>
+      <title>Comparison between Classic translation system and New translation system</title>
+      <link>https://devdocs.prestashop.com/1.7/modules/creation/module-translation/comparison/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/modules/creation/module-translation/comparison/</guid>
+      <description>Comparison between Classic and New translation systems Module developers might be confused by both the Classic and New translation systems coexisting together. This page aims to help you choose the best one for your module.
+What translation system is best for my module? The best translation system for your module depends on two factors:
+ The minimum version of PrestaShop you intend to support:
+If you target 1.7.5 or earlier, you need to use the Classic system.</description>
+    </item>
+    
+    <item>
+      <title>Configuration domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/configuration/</guid>
+      <description>Configuration domain Configuration Commands SwitchDebugModeCommand PrestaShop\PrestaShop\Core\Domain\Configuration\Command\SwitchDebugModeCommand Switches debug mode on/off
+   Command details      Constructor parameters  $bool $enableDebugMode    Handler class PrestaShop\PrestaShop\Adapter\Configuration\CommandHandler\SwitchDebugModeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Configuration\CommandHandler\SwitchDebugModeHandlerInterface   Return type void    Configuration Queries </description>
+    </item>
+    
+    <item>
       <title>Configurations</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/configurations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/configurations/</guid>
       <description>Resources for Configurations Configuration    Name Format Required Max size Description     value  ❌     name isConfigName ✔️ 254    id_shop_group isUnsignedId ❌  Shop group ID   id_shop isUnsignedId ❌  Shop ID   date_add isDate ❌     date_upd isDate ❌      Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.w3.org/1999/xlink&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;id&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/id&amp;gt; &amp;lt;value&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/value&amp;gt; &amp;lt;name&amp;gt;&amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>Contact domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/contact/</guid>
+      <description>Contact domain Contact Commands AddContactCommand PrestaShop\PrestaShop\Core\Domain\Contact\Command\AddContactCommand Class AddContactCommand is responsible for adding the contact data.
+   Command details      Constructor parameters  $array $localisedTitles $bool $isMessageSavingEnabled    Handler class PrestaShop\PrestaShop\Adapter\Contact\CommandHandler\AddContactHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Contact\CommandHandler\AddContactHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Contact\ValueObject\ContactId    EditContactCommand PrestaShop\PrestaShop\Core\Domain\Contact\Command\EditContactCommand Class EditContactCommand is responsible for editing contact data.
+   Command details      Constructor parameters  $int $contactId    Handler class PrestaShop\PrestaShop\Adapter\Contact\CommandHandler\EditContactHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Contact\CommandHandler\EditContactHandlerInterface   Return type void    Contact Queries GetContactForEditing PrestaShop\PrestaShop\Core\Domain\Contact\Query\GetContactForEditing Class GetContactForEditing is responsible for getting the data related with contact entity.</description>
     </item>
     
     <item>
@@ -2058,12 +2200,33 @@ Production dependencies    Package name From To Compare     beberlei/doctrineext
     </item>
     
     <item>
+      <title>Context helper</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/console/context-helper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/console/context-helper/</guid>
+      <description>CLI Context helper The legacy framework of PrestaShop was not built to be run from a Command Line.
+The consequence is that many of its functions require specific data to be properly initialized, and these parts are being initialized when an HTTP request is handled by the framework.
+In order to use legacy classes and components in Console, you need to initialize these parts. To make it easy, a LegacyContextLoader helper class was introduced in version 1.</description>
+    </item>
+    
+    <item>
       <title>Countries</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/countries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/countries/</guid>
       <description>Resources for Countries Country    Name Format Required Max size Description     id_zone isUnsignedId ✔️  Zone ID   id_currency isUnsignedId ❌  Currency ID   call_prefix isInt ❌     iso_code isLanguageIsoCode ✔️ 3    active isBool ❌     contains_states isBool ✔️     need_identification_number isBool ✔️     need_zip_code isBool ❌     zip_code_format isZipCodeFormat ❌     display_tax_label isBool ✔️     name isGenericName ✔️ 64     Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Country domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/country/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/country/</guid>
+      <description>Country domain Country Commands Country Queries GetCountryRequiredFields PrestaShop\PrestaShop\Core\Domain\Country\Query\GetCountryRequiredFields Query for getting country required fields
+   Query details      Constructor parameters  $int $countryId    Handler class PrestaShop\PrestaShop\Adapter\Country\QueryHandler\GetCountryRequiredFieldsHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Country\QueryHandler\GetCountryRequiredFieldsHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Country\QueryResult\CountryRequiredFields    </description>
     </item>
     
     <item>
@@ -2077,12 +2240,43 @@ Type options    Option Type Default value Description      choices array Array o
     </item>
     
     <item>
+      <title>CreditSlip domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/credit-slip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/credit-slip/</guid>
+      <description>CreditSlip domain CreditSlip Commands CreditSlip Queries GetCreditSlipIdsByDateRange PrestaShop\PrestaShop\Core\Domain\CreditSlip\Query\GetCreditSlipIdsByDateRange Gets CreditSlipIds for provided date range
+   Query details      Constructor parameters  $DateTime $dateTimeFrom $DateTime $dateTimeTo    Handler class PrestaShop\PrestaShop\Adapter\CreditSlip\QueryHandler\GetCreditSlipIdsByDateRangeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CreditSlip\QueryHandler\GetCreditSlipIdsByDateRangeHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\CreditSlip\ValueObject\CreditSlipId[]    </description>
+    </item>
+    
+    <item>
       <title>Currencies</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/currencies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/currencies/</guid>
       <description>Resources for Currencies Currency    Name Format Required Max size Not filterable Description     names  ❌      name isGenericName ✔️ 255 true    symbol  ❌ 255     iso_code isLanguageIsoCode ✔️ 3     numeric_iso_code isNumericIsoCode ❌ 3     precision isInt ❌      conversion_rate isUnsignedFloat ✔️      deleted isBool ❌      active isBool ❌      unofficial isBool ❌      modified isBool ❌      pattern  ❌ 255      Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Currency domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/currency/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/currency/</guid>
+      <description>Currency domain Currency Commands AddCurrencyCommand PrestaShop\PrestaShop\Core\Domain\Currency\Command\AddCurrencyCommand Class AddCurrencyCommand used to add an official currency
+   Command details      Constructor parameters  $string $isoCode $float $exchangeRate $bool $isEnabled    Handler class PrestaShop\PrestaShop\Adapter\Currency\CommandHandler\AddOfficialCurrencyHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Currency\CommandHandler\AddCurrencyHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Currency\ValueObject\CurrencyId    AddUnofficialCurrencyCommand PrestaShop\PrestaShop\Core\Domain\Currency\Command\AddUnofficialCurrencyCommand Class AddUnofficialCurrencyCommand used to add an alternative currency
+   Command details      Constructor parameters  $string $isoCode $float $exchangeRate $bool $isEnabled    Handler class PrestaShop\PrestaShop\Adapter\Currency\CommandHandler\AddUnofficialCurrencyHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Currency\CommandHandler\AddUnofficialCurrencyHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Currency\ValueObject\CurrencyId    BulkDeleteCurrenciesCommand PrestaShop\PrestaShop\Core\Domain\Currency\Command\BulkDeleteCurrenciesCommand Deletes given currencies</description>
+    </item>
+    
+    <item>
+      <title>Customer domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/customer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/customer/</guid>
+      <description>Customer domain Customer Commands AddCustomerCommand PrestaShop\PrestaShop\Core\Domain\Customer\Command\AddCustomerCommand Adds new customer with provided data
+   Command details      Constructor parameters  $string $firstName $string $lastName $string $email $string $password $int $defaultGroupId $array $groupIds $int $shopId $?int $genderId = NULL $?bool $isEnabled = true $?bool $isPartnerOffersSubscribed = false $?string $birthday = NULL    Handler class PrestaShop\PrestaShop\Adapter\Customer\CommandHandler\AddCustomerHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Customer\CommandHandler\AddCustomerHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Customer\ValueObject\CustomerId    BulkDeleteCustomerCommand PrestaShop\PrestaShop\Core\Domain\Customer\Command\BulkDeleteCustomerCommand Deletes given customers.</description>
     </item>
     
     <item>
@@ -2104,12 +2298,33 @@ Type options    Option Type Default value Description      choices array Array o
     </item>
     
     <item>
+      <title>CustomerMessage domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/customer-message/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/customer-message/</guid>
+      <description>CustomerMessage domain CustomerMessage Commands AddOrderCustomerMessageCommand PrestaShop\PrestaShop\Core\Domain\CustomerMessage\Command\AddOrderCustomerMessageCommand This command adds/sends message to the customer related with the order.
+   Command details      Constructor parameters  $int $orderId $string $message $bool $isPrivate    Handler class PrestaShop\PrestaShop\Adapter\CustomerService\CommandHandler\AddOrderCustomerMessageHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CustomerMessage\CommandHandler\AddOrderCustomerMessageHandlerInterface   Return type void    CustomerMessage Queries </description>
+    </item>
+    
+    <item>
       <title>Customers</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/customers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/customers/</guid>
       <description>Resources for Customers Customer    Name Format Required Writable Max size Description     id_default_group  ❌ ✔️  Default group ID   id_lang isUnsignedId ❌ ✔️  Lang ID   newsletter_date_add  ❌ ✔️     ip_registration_newsletter  ❌ ✔️     last_passwd_gen  ❌ ❌     secure_key isMd5 ❌ ❌     deleted isBool ❌ ✔️     passwd isPasswd ✔️ ✔️ 255    lastname isCustomerName ✔️ ✔️ 255    firstname isCustomerName ✔️ ✔️ 255    email isEmail ✔️ ✔️ 255    id_gender isUnsignedId ❌ ✔️  Gender ID   birthday isBirthDate ❌ ✔️     newsletter isBool ❌ ✔️     optin isBool ❌ ✔️     website isUrl ❌ ✔️     company isGenericName ❌ ✔️     siret isGenericName ❌ ✔️     ape isApe ❌ ✔️     outstanding_allow_amount isFloat ❌ ✔️     show_public_prices isBool ❌ ✔️     id_risk isUnsignedInt ❌ ✔️  Risk ID   max_payment_days isUnsignedInt ❌ ✔️     active isBool ❌ ✔️     note  ❌ ✔️ 65000    is_guest isBool ❌ ✔️     id_shop isUnsignedId ❌ ✔️  Shop ID   id_shop_group isUnsignedId ❌ ✔️  Shop group ID   date_add isDate ❌ ✔️     date_upd isDate ❌ ✔️     reset_password_token isSha1 ❌ ✔️ 40    reset_password_validity isDateOrNull ❌ ✔️     associations  ❌ ✔️      Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>CustomerService domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/customer-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/customer-service/</guid>
+      <description>CustomerService domain CustomerService Commands ForwardCustomerThreadCommand PrestaShop\PrestaShop\Core\Domain\CustomerService\Command\ForwardCustomerThreadCommand Forwards customer thread
+   Command details      Constructor parameters    Handler class PrestaShop\PrestaShop\Adapter\CustomerService\CommandHandler\ForwardCustomerThreadHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CustomerService\CommandHandler\ForwardCustomerThreadHandlerInterface   Return type void    ReplyToCustomerThreadCommand PrestaShop\PrestaShop\Core\Domain\CustomerService\Command\ReplyToCustomerThreadCommand Reply to given customer thread
+   Command details      Constructor parameters  $int $customerThreadId $string $replyMessage    Handler class PrestaShop\PrestaShop\Adapter\CustomerService\CommandHandler\ReplyToCustomerThreadHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\CustomerService\CommandHandler\ReplyToCustomerThreadHandlerInterface   Return type void    UpdateCustomerThreadStatusCommand PrestaShop\PrestaShop\Core\Domain\CustomerService\Command\UpdateCustomerThreadStatusCommand Updates customer thread with given status</description>
     </item>
     
     <item>
@@ -2155,6 +2370,17 @@ Code example &amp;lt;?php // path/to/your/CustomType.php  use PrestaShopBundle\F
     </item>
     
     <item>
+      <title>Employee domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/employee/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/employee/</guid>
+      <description>Employee domain Employee Commands AddEmployeeCommand PrestaShop\PrestaShop\Core\Domain\Employee\Command\AddEmployeeCommand Adds new employee with given data
+   Command details      Constructor parameters  $string $firstName $string $lastName $string $email $string $plainPassword $int $defaultPageId $int $languageId $bool $active $int $profileId $array $shopAssociation $bool $hasEnabledGravatar = false    Handler class PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\AddEmployeeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Employee\CommandHandler\AddEmployeeHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Employee\ValueObject\EmployeeId    BulkDeleteEmployeeCommand PrestaShop\PrestaShop\Core\Domain\Employee\Command\BulkDeleteEmployeeCommand Class BulkDeleteEmployeeCommand.
+   Command details      Constructor parameters  $array $employeeIds    Handler class PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\BulkDeleteEmployeeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Employee\CommandHandler\BulkDeleteEmployeeHandlerInterface   Return type void    BulkUpdateEmployeeStatusCommand PrestaShop\PrestaShop\Core\Domain\Employee\Command\BulkUpdateEmployeeStatusCommand Class UpdateEmployeesStatusCommand updates employees status.</description>
+    </item>
+    
+    <item>
       <title>Employees</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/employees/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2171,6 +2397,16 @@ Code example &amp;lt;?php // path/to/your/CustomType.php  use PrestaShopBundle\F
       <guid>https://devdocs.prestashop.com/1.7/themes/distribution/exporting/</guid>
       <description>Exporting your theme Creating a valid ZIP file There is no longer any theme data in the database with PrestaShop 1.7. Hence a theme is installed as soon as it is on the disk.
 If you want the theme to appears in the backoffice, it only needs to contain a config/theme.yml file. This will only display it, if you want to select it as your active theme, it has to be valid.</description>
+    </item>
+    
+    <item>
+      <title>Feature domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/feature/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/feature/</guid>
+      <description>Feature domain Feature Commands AddFeatureCommand PrestaShop\PrestaShop\Core\Domain\Feature\Command\AddFeatureCommand Adds new feature
+   Command details      Constructor parameters  $array $localizedNames `$array $shopAssociation = array (   )`     Handler class PrestaShop\PrestaShop\Adapter\Feature\CommandHandler\AddFeatureHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Feature\CommandHandler\AddFeatureHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Feature\ValueObject\FeatureId    AddFeatureValueCommand PrestaShop\PrestaShop\Core\Domain\Feature\Command\AddFeatureValueCommand Class AddFeatureValueCommand is used to add predefined feature values (as opposed to custom values which are only assigned to a Specific product)</description>
     </item>
     
     <item>
@@ -2240,6 +2476,17 @@ Using router via Link::getUrlSmarty  &amp;lt;?php use Link; // Generate url with
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/guests/</guid>
       <description>Resources for Guests Guest    Name Format Required Max size Description     id_customer isUnsignedId ❌  Customer ID   id_operating_system isUnsignedId ❌  Operating system ID   id_web_browser isUnsignedId ❌  Web browser ID   javascript isBool ❌     screen_resolution_x isInt ❌     screen_resolution_y isInt ❌     screen_color isInt ❌     sun_java isBool ❌     adobe_flash isBool ❌     adobe_director isBool ❌     apple_quicktime isBool ❌     real_player isBool ❌     windows_media isBool ❌     accept_language isGenericName ❌ 8    mobile_theme isBool ❌      Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Hook domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/hook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/hook/</guid>
+      <description>Hook domain Hook Commands UpdateHookStatusCommand PrestaShop\PrestaShop\Core\Domain\Hook\Command\UpdateHookStatusCommand Class UpdateHookStatusCommand update a given hook status
+   Command details      Constructor parameters  $int $hookId $bool $status    Handler class PrestaShop\PrestaShop\Adapter\Hook\CommandHandler\UpdateHookStatusCommandHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Hook\CommandHandler\UpdateHookStatusCommandHandlerInterface   Return type void    Hook Queries GetHookStatus PrestaShop\PrestaShop\Core\Domain\Hook\Query\GetHookStatus Get current status (enabled/disabled) for a given hook
+   Query details      Constructor parameters  $int $hookId    Handler class PrestaShop\PrestaShop\Adapter\Hook\QueryHandler\GetHookStatusHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Hook\QueryHandler\GetHookStatusHandlerInterface   Return type bool    </description>
     </item>
     
     <item>
@@ -2324,6 +2571,17 @@ Required Javascript components    Component Description     ../admin-dev/themes/
     </item>
     
     <item>
+      <title>Language domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/language/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/language/</guid>
+      <description>Language domain Language Commands AddLanguageCommand PrestaShop\PrestaShop\Core\Domain\Language\Command\AddLanguageCommand Adds new language with given data
+   Command details      Constructor parameters  $string $name $string $isoCode $string $tagIETF $string $shortDateFormat $string $fullDateFormat $string $flagImagePath $string $noPictureImagePath $bool $isRtl $bool $isActive $array $shopAssociation    Handler class PrestaShop\PrestaShop\Adapter\Language\CommandHandler\AddLanguageHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Language\CommandHandler\AddLanguageHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Language\ValueObject\LanguageId    BulkDeleteLanguagesCommand PrestaShop\PrestaShop\Core\Domain\Language\Command\BulkDeleteLanguagesCommand Deletes given languages
+   Command details      Constructor parameters  $array $languageIds    Handler class PrestaShop\PrestaShop\Adapter\Language\CommandHandler\BulkDeleteLanguagesHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Language\CommandHandler\BulkDeleteLanguagesHandlerInterface   Return type void    BulkToggleLanguagesStatusCommand PrestaShop\PrestaShop\Core\Domain\Language\Command\BulkToggleLanguagesStatusCommand Enables/disables languages status</description>
+    </item>
+    
+    <item>
       <title>Languages</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/languages/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2363,6 +2621,27 @@ PrestaShop&amp;rsquo;s Native Modules and the Classic theme are released under t
       <description>Localization packs Wordings in the software are exported into Crowdin, a translation platform. This allows contributors to translate these into all supported languages.
 Each night, a cron job fetches translations from Crowdin, updates the PrestaShop/TranslationFiles repository with new updates, and deploys translations to domain i18n.prestashop.com.
 i18n.prestashop.com is a domain hosted by PrestaShop company to store all supported Languages Localization Packages. This is the domain where localization packs are downloaded when you use the &amp;ldquo;Download a Language Pack&amp;rdquo; feature in Back Office.</description>
+    </item>
+    
+    <item>
+      <title>MailTemplate domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/mail-template/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/mail-template/</guid>
+      <description>MailTemplate domain MailTemplate Commands GenerateThemeMailTemplatesCommand PrestaShop\PrestaShop\Core\Domain\MailTemplate\Command\GenerateThemeMailTemplatesCommand Class GenerateThemeMailsCommand generates email theme�s templates for a specific language. If folders are not overridden in the command then MailTemplateGenerator will use the default output folders (in mails folder).
+   Command details      Constructor parameters  $string $themeName $string $language $?bool $overwriteTemplates = false $?string $coreMailsFolder = &amp;amp;#039;&amp;amp;#039; $?string $modulesMailFolder = &amp;amp;#039;&amp;amp;#039;    Handler class PrestaShop\PrestaShop\Core\Domain\MailTemplate\CommandHandler\GenerateThemeMailTemplatesCommandHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\MailTemplate\CommandHandler\GenerateThemeMailTemplatesCommandHandlerInterface   Return type void    MailTemplate Queries </description>
+    </item>
+    
+    <item>
+      <title>Manufacturer domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/manufacturer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/manufacturer/</guid>
+      <description>Manufacturer domain Manufacturer Commands AddManufacturerCommand PrestaShop\PrestaShop\Core\Domain\Manufacturer\Command\AddManufacturerCommand Creates manufacturer with provided data
+   Command details      Constructor parameters  $string $name $bool $enabled $array $localizedShortDescriptions $array $localizedDescriptions $array $localizedMetaTitles $array $localizedMetaDescriptions $array $localizedMetaKeywords $array $shopAssociation    Handler class PrestaShop\PrestaShop\Adapter\Manufacturer\CommandHandler\AddManufacturerHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Manufacturer\CommandHandler\AddManufacturerHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Manufacturer\ValueObject\ManufacturerId    BulkDeleteManufacturerCommand PrestaShop\PrestaShop\Core\Domain\Manufacturer\Command\BulkDeleteManufacturerCommand Deletes manufacturers in bulk action
+   Command details      Constructor parameters  $array $manufacturerIds    Handler class PrestaShop\PrestaShop\Adapter\Manufacturer\CommandHandler\BulkDeleteManufacturerHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Manufacturer\CommandHandler\BulkDeleteManufacturerHandlerInterface   Return type void    BulkToggleManufacturerStatusCommand PrestaShop\PrestaShop\Core\Domain\Manufacturer\Command\BulkToggleManufacturerStatusCommand Toggles manufacturer status in bulk action</description>
     </item>
     
     <item>
@@ -2414,6 +2693,17 @@ Type options    Option Type Default value Description     multiple_choices array
     </item>
     
     <item>
+      <title>Meta domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/meta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/meta/</guid>
+      <description>Meta domain Meta Commands AddMetaCommand PrestaShop\PrestaShop\Core\Domain\Meta\Command\AddMetaCommand Class AddMetaCommand is responsible for saving meta entities data.
+   Command details      Constructor parameters  $string $pageName    Handler class PrestaShop\PrestaShop\Adapter\Meta\CommandHandler\AddMetaHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Meta\CommandHandler\AddMetaHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Meta\ValueObject\MetaId    EditMetaCommand PrestaShop\PrestaShop\Core\Domain\Meta\Command\EditMetaCommand Class EditMetaCommand
+   Command details      Constructor parameters  $int $metaId    Handler class PrestaShop\PrestaShop\Adapter\Meta\CommandHandler\EditMetaHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Meta\CommandHandler\EditMetaHandlerInterface   Return type void    Meta Queries GetMetaForEditing PrestaShop\PrestaShop\Core\Domain\Meta\Query\GetMetaForEditing Class GetMetaForEditing is responsible for providing required data for GetMetaForEditingHandler to return meta data.</description>
+    </item>
+    
+    <item>
       <title>Migrating from PrestaShop 1.6</title>
       <link>https://devdocs.prestashop.com/1.7/themes/reference/migration-from-16/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2456,6 +2746,17 @@ While these parameters can prove useful when having to handle multiple specific 
 Note {{% notice note %}} This is something you may want to know. {{% /notice %}} Renders to:
 This is something you may want to know. Tip {{% notice tip %}} Everything will be fine, trust me. {{% /notice %}} Renders to:
 Everything will be fine, trust me. Info {{% notice info %}} This is pretty important, you should pay attention.</description>
+    </item>
+    
+    <item>
+      <title>Notification domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/notification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/notification/</guid>
+      <description>Notification domain Notification Commands UpdateEmployeeNotificationLastElementCommand PrestaShop\PrestaShop\Core\Domain\Notification\Command\UpdateEmployeeNotificationLastElementCommand Updates the last notification element from a given type seen by the employee
+   Command details      Constructor parameters  $string $type    Handler class PrestaShop\PrestaShop\Adapter\Notification\CommandHandler\UpdateEmployeeNotificationLastElementHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Notification\CommandHandler\UpdateEmployeeNotificationLastElementCommandHandlerInterface   Return type void    Notification Queries GetNotificationLastElements PrestaShop\PrestaShop\Core\Domain\Notification\Query\GetNotificationLastElements This Query return the last Notifications elements
+   Query details      Constructor parameters  $int $employeeId    Handler class PrestaShop\PrestaShop\Adapter\Notification\QueryHandler\GetNotificationLastElementsHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Notification\QueryHandler\GetNotificationLastElementsHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Notification\QueryResult\NotificationsResults    </description>
     </item>
     
     <item>
@@ -2541,6 +2842,17 @@ If you&amp;rsquo;ve done no benchmark beforehand, there is no way to ensure you 
     </item>
     
     <item>
+      <title>Order domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order/</guid>
+      <description>Order domain Order Commands AddCartRuleToOrderCommand PrestaShop\PrestaShop\Core\Domain\Order\Command\AddCartRuleToOrderCommand Adds cart rule to given order.
+   Command details      Constructor parameters  $int $orderId $string $cartRuleName $string $cartRuleType $string $value $?int $orderInvoiceId = NULL    Handler class PrestaShop\PrestaShop\Adapter\Order\CommandHandler\AddCartRuleToOrderHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Order\CommandHandler\AddCartRuleToOrderHandlerInterface   Return type void    AddOrderFromBackOfficeCommand PrestaShop\PrestaShop\Core\Domain\Order\Command\AddOrderFromBackOfficeCommand Adds new order from given cart.
+   Command details      Constructor parameters  $int $cartId $int $employeeId $string $orderMessage $string $paymentModuleName $int $orderStateId    Handler class PrestaShop\PrestaShop\Adapter\Order\CommandHandler\AddOrderFromBackOfficeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Order\CommandHandler\AddOrderFromBackOfficeHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Order\ValueObject\OrderId    AddPaymentCommand PrestaShop\PrestaShop\Core\Domain\Order\Payment\Command\AddPaymentCommand Adds payment for given order.</description>
+    </item>
+    
+    <item>
       <title>Order histories</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/order_histories/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2586,12 +2898,43 @@ If you&amp;rsquo;ve done no benchmark beforehand, there is no way to ensure you 
     </item>
     
     <item>
+      <title>OrderMessage domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order-message/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order-message/</guid>
+      <description>OrderMessage domain OrderMessage Commands AddOrderMessageCommand PrestaShop\PrestaShop\Core\Domain\OrderMessage\Command\AddOrderMessageCommand Add new order message
+   Command details      Constructor parameters  $array $localizedName $array $localizedMessage    Handler class PrestaShop\PrestaShop\Adapter\OrderMessage\CommandHandler\AddOrderMessageHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\OrderMessage\CommandHandler\AddOrderMessageHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\OrderMessage\ValueObject\OrderMessageId    BulkDeleteOrderMessageCommand PrestaShop\PrestaShop\Core\Domain\OrderMessage\Command\BulkDeleteOrderMessageCommand Delete given order messages
+   Command details      Constructor parameters  $array $orderMessageIds    Handler class PrestaShop\PrestaShop\Adapter\OrderMessage\CommandHandler\BulkDeleteOrderMessageHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\OrderMessage\CommandHandler\BulkDeleteOrderMessageHandlerInterface   Return type void    DeleteOrderMessageCommand PrestaShop\PrestaShop\Core\Domain\OrderMessage\Command\DeleteOrderMessageCommand Delete given order message</description>
+    </item>
+    
+    <item>
+      <title>OrderReturnState domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order-return-state/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order-return-state/</guid>
+      <description>OrderReturnState domain OrderReturnState Commands AddOrderReturnStateCommand PrestaShop\PrestaShop\Core\Domain\OrderReturnState\Command\AddOrderReturnStateCommand Adds new order return state with provided data
+   Command details      Constructor parameters  $array $localizedNames $string $color    Handler class PrestaShop\PrestaShop\Adapter\OrderReturnState\CommandHandler\AddOrderReturnStateHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\OrderReturnState\CommandHandler\AddOrderReturnStateHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\OrderReturnState\ValueObject\OrderReturnStateId    EditOrderReturnStateCommand PrestaShop\PrestaShop\Core\Domain\OrderReturnState\Command\EditOrderReturnStateCommand Edits provided order return state. It can edit either all or partial data. Only not-null values are considered when editing order return state.</description>
+    </item>
+    
+    <item>
       <title>Orders</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/orders/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/orders/</guid>
       <description>Resources for Orders Order    Name Format Required Not filterable Description     id_address_delivery isUnsignedId ✔️  Delivery address ID   id_address_invoice isUnsignedId ✔️  Invoice address ID   id_cart isUnsignedId ✔️  Cart ID   id_currency isUnsignedId ✔️  Currency ID   id_lang isUnsignedId ✔️  Lang ID   id_customer isUnsignedId ✔️  Customer ID   id_carrier isUnsignedId ✔️  Carrier ID   current_state isUnsignedId ❌     module isModuleName ✔️     invoice_number  ❌     invoice_date  ❌     delivery_number  ❌     delivery_date  ❌     valid  ❌     date_add isDate ❌     date_upd isDate ❌     shipping_number isTrackingNumber ❌ true    note isCleanHtml ❌     id_shop_group isUnsignedId ❌  Shop group ID   id_shop isUnsignedId ❌  Shop ID   secure_key isMd5 ❌     payment isGenericName ✔️     recyclable isBool ❌     gift isBool ❌     gift_message isMessage ❌     mobile_theme isBool ❌     total_discounts isPrice ❌     total_discounts_tax_incl isPrice ❌     total_discounts_tax_excl isPrice ❌     total_paid isPrice ✔️     total_paid_tax_incl isPrice ❌     total_paid_tax_excl isPrice ❌     total_paid_real isPrice ✔️     total_products isPrice ✔️     total_products_wt isPrice ✔️     total_shipping isPrice ❌     total_shipping_tax_incl isPrice ❌     total_shipping_tax_excl isPrice ❌     carrier_tax_rate isFloat ❌     total_wrapping isPrice ❌     total_wrapping_tax_incl isPrice ❌     total_wrapping_tax_excl isPrice ❌     round_mode isUnsignedId ❌     round_type isUnsignedId ❌     conversion_rate isFloat ✔️     reference  ❌     associations  ❌      Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>OrderState domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order-state/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/order-state/</guid>
+      <description>OrderState domain OrderState Commands AddOrderStateCommand PrestaShop\PrestaShop\Core\Domain\OrderState\Command\AddOrderStateCommand Adds new order state with provided data
+   Command details      Constructor parameters  $array $localizedNames $string $color $bool $loggable $bool $invoice $bool $hidden $bool $sendEmail $bool $pdfInvoice $bool $pdfDelivery $bool $shipped $bool $paid $bool $delivery $array $localizedTemplates    Handler class PrestaShop\PrestaShop\Adapter\OrderState\CommandHandler\AddOrderStateHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\OrderState\CommandHandler\AddOrderStateHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\OrderState\ValueObject\OrderStateId    EditOrderStateCommand PrestaShop\PrestaShop\Core\Domain\OrderState\Command\EditOrderStateCommand Edits provided order state.</description>
     </item>
     
     <item>
@@ -2811,6 +3154,17 @@ We require from maintainers to take the necessary steps to make sure this accoun
     </item>
     
     <item>
+      <title>Product domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/product/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/product/</guid>
+      <description>Product domain Product Commands BulkDeleteAttributeCommand PrestaShop\PrestaShop\Core\Domain\Product\AttributeGroup\Attribute\Command\BulkDeleteAttributeCommand Deletes attributes in bulk action
+   Command details      Constructor parameters  $array $attributeIds    Handler class PrestaShop\PrestaShop\Adapter\Attribute\CommandHandler\BulkDeleteAttributeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Product\AttributeGroup\Attribute\CommandHandler\BulkDeleteAttributeHandlerInterface   Return type void    DeleteAttributeCommand PrestaShop\PrestaShop\Core\Domain\Product\AttributeGroup\Attribute\Command\DeleteAttributeCommand Deletes Attribute by provided id
+   Command details      Constructor parameters  $int $attributeId    Handler class PrestaShop\PrestaShop\Adapter\Attribute\CommandHandler\DeleteAttributeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Product\AttributeGroup\Attribute\CommandHandler\DeleteAttributeHandlerInterface   Return type void    BulkDeleteAttributeGroupCommand PrestaShop\PrestaShop\Core\Domain\Product\AttributeGroup\Command\BulkDeleteAttributeGroupCommand Deletes attribute groups in bulk action by provided ids</description>
+    </item>
+    
+    <item>
       <title>Product FAQ</title>
       <link>https://devdocs.prestashop.com/1.7/faq/product/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2875,6 +3229,17 @@ A: By default, when a product is displayed in a list its cover image is used, it
     </item>
     
     <item>
+      <title>Profile domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/profile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/profile/</guid>
+      <description>Profile domain Profile Commands AddProfileCommand PrestaShop\PrestaShop\Core\Domain\Profile\Command\AddProfileCommand Adds new profile
+   Command details      Constructor parameters  $array $localizedNames    Handler class PrestaShop\PrestaShop\Adapter\Profile\CommandHandler\AddProfileHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Profile\CommandHandler\AddProfileHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Profile\ValueObject\ProfileId    BulkDeleteProfileCommand PrestaShop\PrestaShop\Core\Domain\Profile\Command\BulkDeleteProfileCommand Class BulkDeleteProfileCommand is a command to bulk delete profiles by given ids.
+   Command details      Constructor parameters  $array $profileIds    Handler class PrestaShop\PrestaShop\Adapter\Profile\CommandHandler\BulkDeleteProfileHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Profile\CommandHandler\BulkDeleteProfileHandlerInterface   Return type void    DeleteProfileCommand PrestaShop\PrestaShop\Core\Domain\Profile\Command\DeleteProfileCommand Class DeleteProfileCommand is a command to delete profile by given id.</description>
+    </item>
+    
+    <item>
       <title>Right-To-Left languages</title>
       <link>https://devdocs.prestashop.com/1.7/development/internationalization/rtl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2883,6 +3248,18 @@ A: By default, when a product is displayed in a list its cover image is used, it
       <description>Right-to-Left languages PrestaShop supports Right-to-Left (RTL) languages natively, both in the Back Office and the Front Office. It can automatically transform themes to make them compatible with RTL languages.
 Any Front Office theme can be transformed automatically by PrestaShop. Read &amp;ldquo;RTL support&amp;rdquo; in the Themes section to learn more about this system.
 Back Office support The Back Office uses the same &amp;ldquo;theme-flipping&amp;rdquo; system as the Front Office feature. While for Front Office themes the transformation procedure must be triggered manually, in the BO this is performed automatically whenever an RTL language is activated on the shop, either by installing an RTL language or by setting up a language as RTL via edit in the BO.</description>
+    </item>
+    
+    <item>
+      <title>Router and Dispatcher component</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/router-dispatcher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/router-dispatcher/</guid>
+      <description>Router and Dispatcher The legacy Dispatcher and the Symfony Router are in charge of parsing incoming HTTP requests and finding the right Controller to return HTTP response.
+Front office routing The Front office controllers lie in the controllers/front directory.
+The Dispatcher matches a given HTTP request with a Front Office controller.
+When you visit / on your shop, you are being returned the Homepage unless you have your shop installed in a subdirectory, then /your_subdirectory is your Homepage.</description>
     </item>
     
     <item>
@@ -2928,6 +3305,17 @@ Carrier details Information related to a shipping (= delivery method) may be fou
     </item>
     
     <item>
+      <title>Shop domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/shop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/shop/</guid>
+      <description>Shop domain Shop Commands UploadLogosCommand PrestaShop\PrestaShop\Core\Domain\Shop\Command\UploadLogosCommand Uploads logo image files
+   Command details      Constructor parameters    Handler class PrestaShop\PrestaShop\Adapter\Shop\CommandHandler\UploadLogosHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Shop\CommandHandler\UploadLogosHandlerInterface   Return type void    Shop Queries GetLogosPaths PrestaShop\PrestaShop\Core\Domain\Shop\Query\GetLogosPaths Query responsible for getting header, email, invoice and favicon logos paths
+   Query details      Constructor parameters    Handler class PrestaShop\PrestaShop\Adapter\Shop\QueryHandler\GetLogosPathsHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Shop\QueryHandler\GetLogosPathsHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Shop\QueryResult\LogosPaths    SearchShops PrestaShop\PrestaShop\Core\Domain\Shop\Query\SearchShops Query responsible for getting shops for a given search term</description>
+    </item>
+    
+    <item>
       <title>Shop groups</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/shop_groups/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2965,6 +3353,17 @@ Type options    Option Type Default Description     multiple bool true Whether m
     </item>
     
     <item>
+      <title>ShowcaseCard domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/showcase-card/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/showcase-card/</guid>
+      <description>ShowcaseCard domain ShowcaseCard Commands CloseShowcaseCardCommand PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\Command\CloseShowcaseCardCommand This command permanently closes a showcase card
+   Command details      Constructor parameters  $int $employeeId $string $showcaseCardName    Handler class PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\CommandHandler\CloseShowcaseCardHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\CommandHandler\CloseShowcaseCardHandlerInterface   Return type void    ShowcaseCard Queries GetShowcaseCardIsClosed PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\Query\GetShowcaseCardIsClosed This query retrieves the &amp;quot;closed status&amp;quot; of a showcase card
+   Query details      Constructor parameters  $int $employeeId $string $showcaseCardName    Handler class PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\QueryHandler\GetShowcaseCardIsClosedHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\ShowcaseCard\QueryHandler\GetShowcaseCardIsClosedHandlerInterface   Return type bool    </description>
+    </item>
+    
+    <item>
       <title>Smarty helper functions</title>
       <link>https://devdocs.prestashop.com/1.7/themes/reference/smarty-helpers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2989,6 +3388,28 @@ Type options    Option Type Default Description     multiple bool true Whether m
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/specific_prices/</guid>
       <description>Resources for Specific prices Specific_price    Name Format Required Description     id_shop_group isUnsignedId ❌ Shop group ID   id_shop isUnsignedId ✔️ Shop ID   id_cart isUnsignedId ✔️ Cart ID   id_product isUnsignedId ✔️ Product ID   id_product_attribute isUnsignedId ❌ Product attribute ID   id_currency isUnsignedId ✔️ Currency ID   id_country isUnsignedId ✔️ Country ID   id_group isUnsignedId ✔️    id_customer isUnsignedId ✔️ Customer ID   id_specific_price_rule isUnsignedId ❌    price isNegativePrice ✔️    from_quantity isUnsignedInt ✔️    reduction isPrice ✔️    reduction_tax isBool ✔️    reduction_type isReductionType ✔️    from isDateFormat ✔️    to isDateFormat ✔️     Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>SpecificPrice domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/specific-price/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/specific-price/</guid>
+      <description>SpecificPrice domain SpecificPrice Commands AddSpecificPriceCommand PrestaShop\PrestaShop\Core\Domain\SpecificPrice\Command\AddSpecificPriceCommand Adds specific price
+   Command details      Constructor parameters  $int $productId $string $reductionType $float $reductionValue $bool $includeTax $float $price $int $fromQuantity    Handler class PrestaShop\PrestaShop\Adapter\SpecificPrice\CommandHandler\AddSpecificPriceHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\SpecificPrice\CommandHandler\AddSpecificPriceHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\SpecificPrice\ValueObject\SpecificPriceId    DeleteSpecificPriceByCartProductCommand PrestaShop\PrestaShop\Core\Domain\SpecificPrice\Command\DeleteSpecificPriceByCartProductCommand Deletes specific price by cart id
+   Command details      Constructor parameters  $int $cartId $int $productId    Handler class PrestaShop\PrestaShop\Adapter\SpecificPrice\CommandHandler\DeleteSpecificPriceByCartProductHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\SpecificPrice\CommandHandler\DeleteSpecificPriceByCartProductHandlerInterface   Return type void    SpecificPrice Queries </description>
+    </item>
+    
+    <item>
+      <title>SqlManagement domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/sql-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/sql-management/</guid>
+      <description>SqlManagement domain SqlManagement Commands AddSqlRequestCommand PrestaShop\PrestaShop\Core\Domain\SqlManagement\Command\AddSqlRequestCommand This command creates new SqlRequest entity with provided data.
+   Command details      Constructor parameters  $string $name $string $sql    Handler class PrestaShop\PrestaShop\Adapter\SqlManager\CommandHandler\AddSqlRequestHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\SqlManagement\CommandHandler\AddSqlRequestHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\SqlManagement\ValueObject\SqlRequestId    BulkDeleteSqlRequestCommand PrestaShop\PrestaShop\Core\Domain\SqlManagement\Command\BulkDeleteSqlRequestCommand Class BulkDeleteSqlRequestCommand deletes provided SqlRequests.
+   Command details      Constructor parameters  $array $sqlRequestIds    Handler class PrestaShop\PrestaShop\Adapter\SqlManager\CommandHandler\BulkDeleteSqlRequestHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\SqlManagement\CommandHandler\BulkDeleteSqlRequestHandlerInterface   Return type void    DeleteSqlRequestCommand PrestaShop\PrestaShop\Core\Domain\SqlManagement\Command\DeleteSqlRequestCommand Class DeleteSqlRequestCommand command delete SqlRequest by given id.</description>
     </item>
     
     <item>
@@ -3053,6 +3474,16 @@ A: All the stock information for every Product (and Combination) is stored in th
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/stores/</guid>
       <description>Resources for Stores Store    Name Format Required Max size Description     id_country isUnsignedId ✔️  Country ID   id_state isNullOrUnsignedId ❌  State ID   hours isJson ❌ 65000    postcode  ❌ 12    city isCityName ✔️ 64    latitude isCoordinate ❌ 13    longitude isCoordinate ❌ 13    phone isPhoneNumber ❌ 16    fax isPhoneNumber ❌ 16    email isEmail ❌ 255    active isBool ✔️     date_add isDate ❌     date_upd isDate ❌     name isGenericName ✔️ 255    address1 isAddress ✔️ 255    address2 isAddress ❌ 255    note isCleanHtml ❌ 65000     Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Supplier domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/supplier/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/supplier/</guid>
+      <description>Supplier domain Supplier Commands AddSupplierCommand PrestaShop\PrestaShop\Core\Domain\Supplier\Command\AddSupplierCommand Creates new supplier with provided data
+   Command details      Constructor parameters  $string $name $string $address $string $city $int $countryId $bool $enabled $array $localizedDescriptions $array $localizedMetaTitles $array $localizedMetaDescriptions $array $localizedMetaKeywords $array $shopAssociation $?string $address2 = NULL $?string $postCode = NULL $?int $stateId = NULL $?string $phone = NULL $?string $mobilePhone = NULL $?string $dni = NULL    Handler class PrestaShop\PrestaShop\Adapter\Supplier\CommandHandler\AddSupplierHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Supplier\CommandHandler\AddSupplierHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Supplier\ValueObject\SupplierId    BulkDeleteSupplierCommand PrestaShop\PrestaShop\Core\Domain\Supplier\Command\BulkDeleteSupplierCommand Class BulkDeleteSupplierCommand is responsible for deleting multiple suppliers.</description>
     </item>
     
     <item>
@@ -3133,12 +3564,33 @@ Controller/ └── Admin ├── Configure │ ├── AdvancedParameter
     </item>
     
     <item>
+      <title>Tab domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/tab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/tab/</guid>
+      <description>Tab domain Tab Commands UpdateTabStatusByClassNameCommand PrestaShop\PrestaShop\Core\Domain\Tab\Command\UpdateTabStatusByClassNameCommand __
+   Command details      Constructor parameters  $string $className $bool $status    Handler class PrestaShop\PrestaShop\Adapter\Tab\CommandHandler\UpdateTabStatusByClassNameHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Tab\CommandHandler\UpdateTabStatusByClassNameHandlerInterface   Return type void    Tab Queries </description>
+    </item>
+    
+    <item>
       <title>Tags</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/tags/</guid>
       <description>Resources for Tags Tag    Name Format Required Max size Description     id_lang isUnsignedId ✔️  Lang ID   name isGenericName ✔️ 32     Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.w3.org/1999/xlink&amp;#34;&amp;gt; &amp;lt;tag&amp;gt; &amp;lt;id&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/id&amp;gt; &amp;lt;id_lang&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/id_lang&amp;gt; &amp;lt;name&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/name&amp;gt; &amp;lt;/tag&amp;gt; &amp;lt;/prestashop&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Tax domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/tax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/tax/</guid>
+      <description>Tax domain Tax Commands AddTaxCommand PrestaShop\PrestaShop\Core\Domain\Tax\Command\AddTaxCommand Adds new tax
+   Command details      Constructor parameters  $array $localizedNames $float $rate $bool $enabled    Handler class PrestaShop\PrestaShop\Adapter\Tax\CommandHandler\AddTaxHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Tax\CommandHandler\AddTaxHandlerInterface   Return type void    BulkDeleteTaxCommand PrestaShop\PrestaShop\Core\Domain\Tax\Command\BulkDeleteTaxCommand Deletes taxes on bulk action
+   Command details      Constructor parameters  $array $taxIds    Handler class PrestaShop\PrestaShop\Adapter\Tax\CommandHandler\BulkDeleteTaxHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Tax\CommandHandler\BulkDeleteTaxHandlerInterface   Return type void    BulkToggleTaxStatusCommand PrestaShop\PrestaShop\Core\Domain\Tax\Command\BulkToggleTaxStatusCommand Toggles taxes status on bulk action</description>
     </item>
     
     <item>
@@ -3166,6 +3618,17 @@ Controller/ └── Admin ├── Configure │ ├── AdvancedParameter
       
       <guid>https://devdocs.prestashop.com/1.7/webservice/resources/taxes/</guid>
       <description>Resources for Taxes Tax    Name Format Required Max size Description     rate isFloat ✔️     active  ❌     deleted  ❌     name isGenericName ✔️ 32     Blank schema &amp;lt;prestashop xmlns:xlink=&amp;#34;http://www.w3.org/1999/xlink&amp;#34;&amp;gt; &amp;lt;tax&amp;gt; &amp;lt;id&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/id&amp;gt; &amp;lt;rate&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/rate&amp;gt; &amp;lt;active&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/active&amp;gt; &amp;lt;deleted&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/deleted&amp;gt; &amp;lt;name&amp;gt; &amp;lt;language id=&amp;#34;1&amp;#34;&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/language&amp;gt; &amp;lt;language id=&amp;#34;2&amp;#34;&amp;gt;&amp;lt;![CDATA[]]&amp;gt;&amp;lt;/language&amp;gt; &amp;lt;/name&amp;gt; &amp;lt;/tax&amp;gt; &amp;lt;/prestashop&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>TaxRulesGroup domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/tax-rules-group/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/tax-rules-group/</guid>
+      <description>TaxRulesGroup domain TaxRulesGroup Commands BulkDeleteTaxRulesGroupCommand PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\BulkDeleteTaxRulesGroupCommand Command responsible for multiple tax rules groups deletion
+   Command details      Constructor parameters  $array $taxRulesGroupIds    Handler class PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\BulkDeleteTaxRulesGroupHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\CommandHandler\BulkDeleteTaxRulesGroupHandlerInterface   Return type void    BulkSetTaxRulesGroupStatusCommand PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\BulkSetTaxRulesGroupStatusCommand Command responsible for multiple tax rules groups status setting
+   Command details      Constructor parameters  $array $taxRulesGroupIds $bool $expectedStatus    Handler class PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\BulkSetTaxRulesGroupStatusHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\CommandHandler\BulkToggleTaxRulesGroupStatusHandlerInterface   Return type void    DeleteTaxRulesGroupCommand PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\DeleteTaxRulesGroupCommand Command responsible for single tax rules group deletion</description>
     </item>
     
     <item>
@@ -3200,6 +3663,17 @@ Code example Add TextWithUnitType to your form and optionally you can configure 
 Please also read the extensive comments in classes/controller/ProductListingFrontControllerCore, as this document is only a high-level explanation.
 The target audience is anybody who wants to develop a well-integrated search module that replaces the way the PrestaShop core searches for products.
 At the moment this proof of concept works only on the CategoryController but it is easy to extend to the other product controllers (manufacturers, supplier&amp;hellip;).</description>
+    </item>
+    
+    <item>
+      <title>Theme domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/theme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/theme/</guid>
+      <description>Theme domain Theme Commands AdaptThemeToRTLLanguagesCommand PrestaShop\PrestaShop\Core\Domain\Theme\Command\AdaptThemeToRTLLanguagesCommand Class AdaptThemeToRTLLanguagesCommand adapts given theme to RTL languages.
+   Command details      Constructor parameters  $PrestaShop\PrestaShop\Core\Domain\Theme\ValueObject\ThemeName $themeName    Handler class PrestaShop\PrestaShop\Core\Domain\Theme\CommandHandler\AdaptThemeToRTLLanguagesHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Theme\CommandHandler\AdaptThemeToRTLLanguagesHandlerInterface   Return type void    DeleteThemeCommand PrestaShop\PrestaShop\Core\Domain\Theme\Command\DeleteThemeCommand Class DeleteThemeCommand deletes given theme.
+   Command details      Constructor parameters  $PrestaShop\PrestaShop\Core\Domain\Theme\ValueObject\ThemeName $themeName    Handler class PrestaShop\PrestaShop\Core\Domain\Theme\CommandHandler\DeleteThemeHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Theme\CommandHandler\DeleteThemeHandlerInterface   Return type void    EnableThemeCommand PrestaShop\PrestaShop\Core\Domain\Theme\Command\EnableThemeCommand Class EnableThemeCommand enables given Front Office theme for context�s shop.</description>
     </item>
     
     <item>
@@ -3310,6 +3784,17 @@ Example title   </description>
     </item>
     
     <item>
+      <title>Webservice domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/webservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/webservice/</guid>
+      <description>Webservice domain Webservice Commands AddWebserviceKeyCommand PrestaShop\PrestaShop\Core\Domain\Webservice\Command\AddWebserviceKeyCommand Adds new webservice key which is used to access PrestaShop�s API
+   Command details      Constructor parameters  $string $key $string $description $bool $status $array $permissions $array $associatedShops    Handler class PrestaShop\PrestaShop\Adapter\Webservice\CommandHandler\AddWebserviceKeyHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Webservice\CommandHandler\AddWebserviceKeyHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Webservice\ValueObject\WebserviceKeyId    EditWebserviceKeyCommand PrestaShop\PrestaShop\Core\Domain\Webservice\Command\EditWebserviceKeyCommand Edits webservice key data
+   Command details      Constructor parameters  $int $webserviceKeyId    Handler class PrestaShop\PrestaShop\Adapter\Webservice\CommandHandler\EditWebserviceKeyHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Webservice\CommandHandler\EditWebserviceKeyHandlerInterface   Return type void    Webservice Queries GetWebserviceKeyForEditing PrestaShop\PrestaShop\Core\Domain\Webservice\Query\GetWebserviceKeyForEditing Get webservice key data for editing</description>
+    </item>
+    
+    <item>
       <title>Weight ranges</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/weight_ranges/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -3328,6 +3813,17 @@ Example title   </description>
 Type options    Option Type Default Description     choices array array By default Yes/No choices are defined   required boolean false Whether field is required or not    Required Javascript components None.
 Code example Add YesAndNoChoiceType to your form.
 &amp;lt;?php use Symfony\Component\Form\AbstractType; use PrestaShopBundle\Form\Admin\Type\YesAndNoChoiceType; class SomeType extends AbstractType { public function buildForm(FormBuilderInterface $builder, array $options) { $builder-&amp;gt;add(&amp;#39;yesandnochoicetype&amp;#39;, YesAndNoChoiceType::class, [ &amp;#39;choices&amp;#39; =&amp;gt; [ &amp;#39;Yes&amp;#39; =&amp;gt; true, &amp;#39;No&amp;#39; =&amp;gt; false, ], ]); } } Preview example   YesAndNoChoiceType rendered in form   </description>
+    </item>
+    
+    <item>
+      <title>Zone domain</title>
+      <link>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/zone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/architecture/domain/references/zone/</guid>
+      <description>Zone domain Zone Commands AddZoneCommand PrestaShop\PrestaShop\Core\Domain\Zone\Command\AddZoneCommand Adds new zone with provided data.
+   Command details      Constructor parameters  $string $name $bool $enabled $array $shopAssociation    Handler class PrestaShop\PrestaShop\Adapter\Zone\CommandHandler\AddZoneHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Zone\CommandHandler\AddZoneHandlerInterface   Return type PrestaShop\PrestaShop\Core\Domain\Zone\ValueObject\ZoneId    BulkDeleteZoneCommand PrestaShop\PrestaShop\Core\Domain\Zone\Command\BulkDeleteZoneCommand Deletes zones on bulk action
+   Command details      Constructor parameters  $array $zoneIds    Handler class PrestaShop\PrestaShop\Adapter\Zone\CommandHandler\BulkDeleteZoneHandler  Implements:  PrestaShop\PrestaShop\Core\Domain\Zone\CommandHandler\BulkDeleteZoneHandlerInterface   Return type void    BulkToggleZoneStatusCommand PrestaShop\PrestaShop\Core\Domain\Zone\Command\BulkToggleZoneStatusCommand Toggles zones status on bulk action</description>
     </item>
     
     <item>

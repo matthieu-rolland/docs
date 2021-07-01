@@ -12,10 +12,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/themes/getting-started/guidelines/</guid>
-      <description>Guidelines and coding standards Compatibility PHP Code Your PHP code should be compatible with the following versions:
- PrestaShop 1.7.0  ~ 1.7.3  : at least PHP 5.4 PrestaShop 1.7.4  : at least PHP 5.6 PrestaShop 1.7.7  : at least PHP 7.1  HTML / CSS / Javascript Your HTML/CSS/JS code should work with at least:
+      <description>Guidelines and coding standards Compatibility PHP Code Your PHP code should be compatible with PHP compatibility chart
+HTML / CSS / Javascript Your HTML/CSS/JS code should work with at least:
  Edge Firefox 45 Chrome 29.  Mobile-wise:
- iOS 8.4 Android Browser 4.</description>
+ iOS 8.4 Android Browser 4.4  Standards General Use spaces for indentation in every language (PHP, HTML, CSS, etc.):
+4 spaces for PHP files, 2 spaces for all other file types.</description>
     </item>
     
     <item>

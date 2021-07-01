@@ -28,5 +28,17 @@ Do you need this?
 1. Translation functions are used to display your module&amp;rsquo;s wordings in another language PrestaShop provides functions that allow PHP files and Smarty templates to display translated wordings.</description>
     </item>
     
+    <item>
+      <title>Comparison between Classic translation system and New translation system</title>
+      <link>https://devdocs.prestashop.com/1.7/modules/creation/module-translation/comparison/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/modules/creation/module-translation/comparison/</guid>
+      <description>Comparison between Classic and New translation systems Module developers might be confused by both the Classic and New translation systems coexisting together. This page aims to help you choose the best one for your module.
+What translation system is best for my module? The best translation system for your module depends on two factors:
+ The minimum version of PrestaShop you intend to support:
+If you target 1.7.5 or earlier, you need to use the Classic system.</description>
+    </item>
+    
   </channel>
 </rss>

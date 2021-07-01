@@ -19,6 +19,40 @@ This object contains two attributes:
     </item>
     
     <item>
+      <title>Configuration storage</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/configuration/</guid>
+      <description>Configuration storage The Configuration storage of PrestaShop aims to address two needs.
+First, there are multiple situations where a single value has to be stored and be available easily. It can be a boolean to control order mode, it can be a limit for timeout: a simple key =&amp;gt; value(s) storage is needed to manage multiple settings in PrestaShop.
+Secondly, modules might sometimes need a simple storage system, and they should not have to create a new SQL table for such a simple need.</description>
+    </item>
+    
+    <item>
+      <title>Back Office Help sidebar</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/back-office-help-sidebar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/back-office-help-sidebar/</guid>
+      <description>The Back Office Help sidebar Back Office controller returns Back Office HTML pages.
+Most of these Back Office pages have a common HTML structure:
+ a layout at the top a menu navigation bar on the left the page content at the center a collapsable right sidebar that contains documentation  About the help sidebar content When the BO user clicks on the &amp;lsquo;Help&amp;rsquo; button, the sidebar opens and displays the related Documentation page for the Back Office page that the user browses.</description>
+    </item>
+    
+    <item>
+      <title>Router and Dispatcher component</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/router-dispatcher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/router-dispatcher/</guid>
+      <description>Router and Dispatcher The legacy Dispatcher and the Symfony Router are in charge of parsing incoming HTTP requests and finding the right Controller to return HTTP response.
+Front office routing The Front office controllers lie in the controllers/front directory.
+The Dispatcher matches a given HTTP request with a Front Office controller.
+When you visit / on your shop, you are being returned the Homepage unless you have your shop installed in a subdirectory, then /your_subdirectory is your Homepage.</description>
+    </item>
+    
+    <item>
       <title>The Faceted Search component</title>
       <link>https://devdocs.prestashop.com/1.7/development/components/faceted-search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
